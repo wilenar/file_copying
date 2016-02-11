@@ -1,4 +1,5 @@
-#include "iostream"
+#include <iostream>
+#include <fstream>
 #include "fstream"
 #include "conio.h"
 
@@ -17,6 +18,22 @@ int main()
 
 	cout << "Write output file name: ";
 	cin >> outputFileName;
+
+	ifstream ifs(inputFileName);
+	
+	if (ifs.is_open()) 
+	{
+		char c = ifs.get();
+		while (ifs.good()) 
+		{
+			cout << c;
+			c = ifs.get();
+		}
+	}
+	else 
+	{
+		cout << "Wrong input file name!";
+	}
 
 	inputFile.open(inputFileName);
 	outputFile.open(outputFileName);
