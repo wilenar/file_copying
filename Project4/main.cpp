@@ -6,12 +6,12 @@
 
 using namespace std;
 
-void CopyingFileStringByString(istream & input_file, ostream & output_file) 
+void CopyingFileStringByString(istream & InputFile, ostream & OutputFile) 
 {
 	string CopyString;
-	while (getline(input_file, CopyString))
+	while (getline(InputFile, CopyString))
 	{
-		output_file << CopyString;
+		OutputFile << CopyString;
 	}
 }
 
