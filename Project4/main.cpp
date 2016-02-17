@@ -1,38 +1,50 @@
 #include <iostream>
 #include <fstream>
+#include <stdio.h>
+#include <sstream>
 #include <string>
-#include "fstream"
 
 using namespace std;
 
-int main(int argc, char* argv[])
+void CopyingFileStringByString(istream & input_file, ostream & output_file) 
 {
-	ifstream inputFile;
-	ofstream outputFile;
-	string str;
-
-	if (argc != 3)// если передаем аргументы, то argc будет больше 1(в зависимости от кол-ва аргументов)
+	string CopyString;
+	while (getline(input_file, CopyString))
 	{
-		cout << argv[1] << endl;// вывод второй строки из массива указателей на строки(нумерация в строках начинается с 0 )
+		output_file << CopyString;
+	}
+}
+
+void WrongNumberOfArgumentsMessage()
+{
+	cout << "Wrong number of arguments check sample!\nSample: project4.exe test1.txt output.txt" << endl;
+}
+
+void ManipulationWithFiles(char * argv[])
+{
+	ifstream InputFile(argv[1]);
+	ofstream OutputFile(argv[2]);
+	if (InputFile.is_open())
+	{
+		CopyingFileStringByString(InputFile, OutputFile);
 	}
 	else
 	{
-		cout << "Something is wrong..." << endl;
+		cout << "Something went wrong..." << endl;
 	}
-	system("pause");
+	InputFile.close();
+	OutputFile.close();
+}
 
-
-	if (inputFile)
+int main(int argc, char* argv[])
+{
+	if (argc != 3)
 	{
-		while (!inputFile.eof())
-		{
-			getline(inputFile, str);
-			outputFile << str << endl;
-		}
+		WrongNumberOfArgumentsMessage();
 	}
-
-	inputFile.close();
-	outputFile.close();
-
+	else
+	{
+		ManipulationWithFiles(argv);
+	}
 	return 0;
 }
