@@ -7,11 +7,22 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-
-	ifstream inputFile("input.txt");
-	ofstream outputFile("output.txt");
+	ifstream inputFile;
+	ofstream outputFile;
 	string str;
-	if (inputFile && outputFile)
+
+	if (argc != 3)// если передаем аргументы, то argc будет больше 1(в зависимости от кол-ва аргументов)
+	{
+		cout << argv[1] << endl;// вывод второй строки из массива указателей на строки(нумерация в строках начинается с 0 )
+	}
+	else
+	{
+		cout << "Something is wrong..." << endl;
+	}
+	system("pause");
+
+
+	if (inputFile)
 	{
 		while (!inputFile.eof())
 		{
@@ -19,7 +30,7 @@ int main(int argc, char* argv[])
 			outputFile << str << endl;
 		}
 	}
-	else outputFile << ("File not found");
+
 	inputFile.close();
 	outputFile.close();
 
