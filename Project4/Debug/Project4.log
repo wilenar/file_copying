@@ -1,4 +1,4 @@
-﻿Build started 17.02.2016 13:10:58.
+﻿Build started 24.02.2016 11:47:34.
      1>Project "C:\Users\admin\documents\visual studio 2015\Projects\Project4\Project4\Project4.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Visual Studio\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
@@ -10,4 +10,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.83
+Time Elapsed 00:00:04.17

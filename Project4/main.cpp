@@ -1,17 +1,16 @@
 #include <iostream>
 #include <fstream>
-#include <stdio.h>
 #include <sstream>
 #include <string>
 
 using namespace std;
 
-void CopyingFileStringByString(istream & InputFile, ostream & OutputFile) 
+void CopyingFileStringByString(istream & inputFile, ostream & outputFile) 
 {
-	string CopyString;
-	while (getline(InputFile, CopyString))
+	string copyString;
+	while (getline(inputFile, copyString))
 	{
-		OutputFile << CopyString;
+		outputFile << copyString << endl;
 	}
 }
 
@@ -20,20 +19,20 @@ void WrongNumberOfArgumentsMessage()
 	cout << "Wrong number of arguments check sample!\nSample: project4.exe test1.txt output.txt" << endl;
 }
 
-void ManipulationWithFiles(char * argv[])
+void ManipulationWithFiles(char * inputFileName, char * outputFileName)
 {
-	ifstream InputFile(argv[1]);
-	ofstream OutputFile(argv[2]);
-	if (InputFile.is_open())
+	ifstream inputFile(inputFileName);
+	ofstream outputFile(outputFileName);
+	if (inputFile.is_open() && outputFile.is_open())
 	{
-		CopyingFileStringByString(InputFile, OutputFile);
+		CopyingFileStringByString(inputFile, outputFile);
 	}
 	else
 	{
 		cout << "Something went wrong..." << endl;
 	}
-	InputFile.close();
-	OutputFile.close();
+	inputFile.close();
+	outputFile.close();
 }
 
 int main(int argc, char* argv[])
@@ -44,7 +43,7 @@ int main(int argc, char* argv[])
 	}
 	else
 	{
-		ManipulationWithFiles(argv);
+		ManipulationWithFiles(argv[1],argv[2]);
 	}
 	return 0;
 }
